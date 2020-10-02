@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="MQTTXamarin.MainPage"
+	Title="Cliente MQTT"
+	Padding="0, 20, 0, 0">
+
+	<AbsoluteLayout>
+		<StackLayout>
+			<Image Source="http://brtuning.com.br/images/logoliec.png" />
+			<Label
+			Text="Atuador MQTT"
+			HorizontalOptions="Center"
+			FontAttributes="Bold"
+			TextColor="Black"
+			Margin="0,20,0,0"
+			FontSize="20"/>
+			<Button Clicked="Button_ClickedAsync" Text="Conectar" x:Name="Botao1"/>
+			<Label
+			Text="Ar-condicionado"
+			HorizontalOptions="Center"
+			FontAttributes="Bold"
+			TextColor="Black"
+			FontSize="14"/>
+			
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+				<Button Clicked="Button_Clicked_ArONAsync" Text="ON" x:Name="arON"/>
+				<Button Clicked="Button_Clicked_ArOFFAsync" Text="OFF" x:Name="arOFF"/>
+				<StackLayout Orientation="Vertical" VerticalOptions="Center">
+				<Entry Text="Temperatura: 18 a 28" Keyboard="Numeric"
+				x:Name="setPointText"/>
+				<Button Clicked="Button_Clicked_SetPointAsync" Text="Set Point"
+				x:Name="arSetPoint"/>
+				</StackLayout>
+			</StackLayout>
+
+			<Label Text="Cortina"
+			HorizontalOptions="Center"
+			FontAttributes="Bold"
+			TextColor="Black"
+			FontSize="14"/>
+
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+				<Button Clicked="Button_Clicked_CUPAsync" Text="UP" x:Name="botaoCUP"/>
+				<Button Clicked="Button_Clicked_CDOWNAsync" Text="DOWN"
+				x:Name="botaoCDOWN"/>
+				<Button Clicked="Button_Clicked_CSTOPAsync" Text="STOP"
+				x:Name="botaoCSTOP"/>
+			</StackLayout>
+			<Button Clicked="Button_Clicked_configAvanc"
+			Text="Configurações Avançadas"
+			x:Name="BotaoConfigAvanc"/>
+		</StackLayout>
+
+		<BoxView x:Name="boxViewDarkTrans" IsVisible="False"
+		AbsoluteLayout.LayoutBounds="1,1,1,1"
+		AbsoluteLayout.LayoutFlags="All"
+		Color="#99000000"/>
+
+		<StackLayout x:Name="layoutConfigAvanc" BackgroundColor="White" IsVisible="False"
+			AbsoluteLayout.LayoutBounds="0.5,0.5"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			Padding="20">
+			<Label Text="Configurações Avançadas" HorizontalOptions="Center"
+			FontAttributes="Bold" FontSize="20" Margin="0,0,0,20"/>
+			<Label Text="Tópico"/>
+			<Entry x:Name="entryTopico"/>
+			<Label Text="Broker"/>
+			<Entry x:Name="entryBroker"/>
+			<StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+				<Button Text="Ok" x:Name="okConfigAvanc"
+				Clicked="Button_Clicked_okConfigAvanc"/>
+				<Button Text="Cancelar" x:Name="cancelarConfigAvanc"
+				Clicked="Button_Clicked_cancelarConfigAvanc"/>
+			</StackLayout>
+		</StackLayout>
+	</AbsoluteLayout>
+</ContentPage>
