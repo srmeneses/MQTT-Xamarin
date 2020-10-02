@@ -1,2 +1,2 @@
 # MQTT-Xamarin
-Comunicação via MQTT por um aplicativo Xamarin 
+Comunicação via MQTT por um aplicativo Xamarin forms
